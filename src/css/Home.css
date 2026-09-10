@@ -55,10 +55,13 @@
 
 .hero-buttons {
   margin-top: 30px;
-
   display: flex;
   gap: 15px;
 }
+.hero-buttons li{
+  list-style: none;
+}
+
 
 .primary-button,
 .secondary-button {

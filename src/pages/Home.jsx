@@ -2,9 +2,10 @@
 
 
 import "../css/Home.css";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+  let Navigate = useNavigate();
   return (
    
       <div className="hero">
@@ -31,15 +32,11 @@ function Home() {
             </p>
 
             <div className="hero-buttons">
+             
+              <li className="primary-button" onClick={()=>Navigate("/signup")}>Get Started Free</li>
+              <li className="secondary-button" onClick={()=>Navigate("/howItWork")}>Learn More</li>
 
-              <Link to="/signup" className="primary-button">
-                Get Started Free →
-              </Link>
-              
-
-              <a href="#how-it-works" className="secondary-button">
-                Learn More
-              </a>
+             
 
             </div>
 

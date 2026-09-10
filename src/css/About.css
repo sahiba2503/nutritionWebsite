@@ -25,6 +25,9 @@
 .about-hero-content {
   max-width: 600px;
 }
+ .about-button li{
+  list-style: none;
+}
 
 .about-small-title {
   color: #1f6b45;
