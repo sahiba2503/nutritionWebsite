@@ -1,0 +1,336 @@
+/* Hero */
+
+.hero {
+  background: linear-gradient(
+    135deg,
+    #f4fbf5,
+    #ffffff
+  );
+
+  padding: 80px 25px;
+}
+
+.hero-content {
+  max-width: 1200px;
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 50px;
+}
+
+.hero-text {
+  flex: 1;
+}
+
+.small-title {
+  color: #2e8b57;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.hero h1 {
+  margin: 18px 0;
+
+  font-size: 52px;
+  line-height: 1.15;
+
+  color: #173d28;
+}
+
+.hero h1 span {
+  color: #2e8b57;
+}
+
+.hero-description {
+  max-width: 550px;
+
+  color: #666666;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.hero-buttons {
+  margin-top: 30px;
+
+  display: flex;
+  gap: 15px;
+}
+
+.primary-button,
+.secondary-button {
+  padding: 13px 24px;
+
+  border-radius: 9px;
+
+  text-decoration: none;
+
+  font-weight: 600;
+}
+
+.primary-button {
+  background-color: #2e8b57;
+  color: white;
+}
+
+.secondary-button {
+  border: 1px solid #2e8b57;
+  color: #2e8b57;
+}
+
+/* Hero image */
+
+.hero-image {
+  flex: 1;
+
+  min-height: 400px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+}
+
+.food-circle {
+  width: 330px;
+  height: 330px;
+
+  border-radius: 50%;
+
+  background: #dff1df;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 150px;
+}
+
+.floating-card {
+  position: absolute;
+
+  padding: 13px 18px;
+
+  background: white;
+
+  border-radius: 12px;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.card-one {
+  top: 80px;
+  left: 10px;
+}
+
+.card-two {
+  bottom: 70px;
+  right: 10px;
+}
+
+/* Sections */
+
+.features,
+.how-section {
+  max-width: 1200px;
+  margin: auto;
+
+  padding: 80px 25px;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.section-heading p {
+  color: #2e8b57;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+.section-heading h2 {
+  margin: 10px 0;
+
+  color: #173d28;
+
+  font-size: 35px;
+}
+
+.section-heading span {
+  color: #777777;
+}
+
+/* Feature cards */
+
+.feature-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 20px;
+}
+
+.feature-card {
+  padding: 28px;
+
+  background: white;
+
+  border: 1px solid #e8eee9;
+
+  border-radius: 16px;
+
+  text-align: center;
+
+  transition: 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 10px 30px
+    rgba(0, 0, 0, 0.07);
+}
+
+.feature-icon {
+  width: 55px;
+  height: 55px;
+
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #e7f6e9;
+
+  border-radius: 50%;
+
+  font-size: 25px;
+}
+
+.feature-card h3 {
+  color: #234d32;
+}
+
+.feature-card p {
+  color: #777777;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+/* Steps */
+
+.steps {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 25px;
+}
+
+.step {
+  padding: 30px;
+
+  background: #f4fbf5;
+
+  border-radius: 16px;
+
+  text-align: center;
+}
+
+.step > div {
+  font-size: 30px;
+
+  color: #2e8b57;
+
+  font-weight: 700;
+}
+
+.step h3 {
+  color: #234d32;
+}
+
+.step p {
+  color: #777777;
+  line-height: 1.6;
+}
+
+/* Responsive */
+
+@media (max-width: 850px) {
+
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-description {
+    margin: auto;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .feature-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+}
+
+@media (max-width: 550px) {
+
+  .hero {
+    padding: 50px 18px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero-description {
+    font-size: 15px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .food-circle {
+    width: 240px;
+    height: 240px;
+    font-size: 100px;
+  }
+
+  .feature-grid,
+  .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .features,
+  .how-section {
+    padding: 55px 18px;
+  }
+
+}

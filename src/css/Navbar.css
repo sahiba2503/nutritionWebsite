@@ -1,0 +1,153 @@
+.navbar {
+  width: 100%;
+  background-color: #ffffff;
+  border-bottom: 1px solid #eeeeee;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.nav-links li{
+  list-style: none;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 15px 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+/* Logo */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo-icon {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #e7f6e9;
+  border-radius: 50%;
+
+  font-size: 21px;
+}
+
+.logo-text h2 {
+  margin: 0;
+  font-size: 16px;
+  line-height: 16px;
+  color: #1d5c35;
+  letter-spacing: 0.5px;
+}
+
+.logo-text span {
+  display: block;
+  margin-top: 3px;
+
+  font-size: 9px;
+  color: #777777;
+}
+
+/* Navigation */
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-links a {
+  color: #333333;
+  text-decoration: none;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #258b4a;
+}
+
+/* Buttons */
+
+.nav-buttons {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.nav-buttons li{
+list-style: none;
+}
+.login-link {
+  color: #246b3c;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.signup-button {
+  padding: 11px 22px;
+
+  background-color: #2e8b57;
+  color: white;
+
+  text-decoration: none;
+  border-radius: 9px;
+
+  font-weight: 500;
+
+  transition: 0.3s;
+}
+
+.signup-button:hover {
+  background-color: #246f45;
+}
+
+/* Responsive */
+
+@media (max-width: 850px) {
+
+  .nav-links {
+    display: none;
+  }
+
+  .navbar-container {
+    padding: 14px 18px;
+  }
+
+}
+
+@media (max-width: 500px) {
+
+  .logo-text h2 {
+    font-size: 14px;
+  }
+
+  .logo-text span {
+    font-size: 8px;
+  }
+
+  .logo-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .login-link {
+    display: none;
+  }
+
+  .signup-button {
+    padding: 9px 15px;
+    font-size: 13px;
+  }
+}
