@@ -5,6 +5,7 @@ import About from "./About";
 import { Routes, Route } from "react-router-dom";
 import Features from "./Features";
 import HowItWork from "./HowItWork"
+import ForgotPass from "./ForgotPass";
 function MainContainer() {
   return (
     <div>
@@ -15,7 +16,7 @@ function MainContainer() {
           <Route path='/howItWork' element={<HowItWork />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
-
+        <Route path='/forgotPass' element={<ForgotPass />} />
         <Route
           path='*'
           element={

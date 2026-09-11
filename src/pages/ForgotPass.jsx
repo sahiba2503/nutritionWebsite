@@ -3,62 +3,65 @@ import { Link, useNavigate } from "react-router-dom";
 
 import "../css/Auth.css";
 
-function Login() {
-  const navigate = useNavigate();
+function ForgotPass() {
+  const navigate = useNavigate();  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [loading,setLoading] = useState(false);
+  const [error,setError] = useState("");
 
-  function handleLogin(event) {
+  function handleUpdate (event) {
     event.preventDefault();
-    if (loading) {
+    if(loading){
       return;
     }
-
+     
     setLoading(true);
 
     if (!email || !password) {
-      setError("Please enter name and password ");
-      return;
+      setError("Please enter name and password ")
+       return;
     }
     if (email.length < 3 || password.length < 3) {
       setError("Please enter correct information");
-      return;
+       return;
     }
-    //  send this data to Node.js API.
+     //  send this data to Node.js API.
+    
 
-    fetch("http://localhost:3000/validateAccount", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.success) {
-          alert("welcome  to you ");
-          setEmail("");
-          setError("");
-          setPassword("");
-          navigate("/");
-        } else {
-          setError("Please enter correct email and password");
-          alert("Please enter correct email and password");
-          setEmail("");
-          setPassword("");
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-        setError("please enter correct email and password");
-        alert("server error");
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }
+      fetch("http://localhost:3000/changePass",{
+        method:"POST",
+        headers: {
+  "Content-Type": "application/json"
+       },
+       body:JSON.stringify({email,password})
+         })
+         .then((res)=>res.json())
+         .then((data)=>{
+          if(data.success){
+               alert("changed your password");
+               navigate("/");
+          }
+          else{
+            setError("Enter correct email");
+            alert("Please Enter correct email ");
+           
+          }
+         })
+         .catch((error)=>{
+          console.log(error);
+          alert("server error");
+          
+         })
+         .finally(()=>{
+             setEmail("");
+            setError("");
+            setPassword("");
+          setLoading(false);
+         })   
+     
+   
+  };
 
   return (
     <div className='auth-page'>
@@ -88,7 +91,7 @@ function Login() {
 
       <div className='auth-right'>
         <form className='auth-form'>
-          <h2>Login to Your Account</h2>
+          <h2>Forgot Password</h2>
 
           <p className='auth-subtitle'>
             Welcome back! Please enter your details.
@@ -111,9 +114,8 @@ function Login() {
 
           <div className='form-group'>
             <div className='label-row'>
-              <label>Password</label>
-
-              <li onClick={() => navigate("/forgotPass")}>Forgot Password?</li>
+              <label>New Password</label>
+             
             </div>
 
             <input
@@ -123,19 +125,16 @@ function Login() {
               onChange={(event) => setPassword(event.target.value)}
             />
           </div>
-          {error ? error : ""}
-          <button type='submit' className='auth-button' onClick={handleLogin}>
-            Login
-          </button>
+           {error ? error : ""}
+          <button  className='auth-button' onClick={handleUpdate}>
+            change password
+          </button>          
 
-          <p className='auth-footer'>
-            Don't have an account?
-            <li onClick={() => navigate("/signup")}> Sign Up</li>
-          </p>
+        
         </form>
       </div>
     </div>
   );
 }
 
-export default Login;
+export default ForgotPass;
