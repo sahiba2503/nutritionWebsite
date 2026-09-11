@@ -104,7 +104,7 @@
 .auth-subtitle a,
 .auth-footer li {
   color: #2e8b57;
-
+    list-style: none;
   text-decoration: none;
 
   font-weight: 600;

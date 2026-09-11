@@ -22,10 +22,12 @@ function Signup() {
 
     if (!name || !email || !password) {
       setError("Please fill all fields ")
+      setLoading(false);
        return;
     }
     if (name.length < 3 || email.length < 3 || password.length < 3) {
-      setError("Please  enter correct information");
+      setError("Please enter more than three character ");
+      setLoading(false);
        return;
     }
      //  send this data to Node.js API.
@@ -52,9 +54,10 @@ function Signup() {
             setError("something wrong please try again");
           }
          })
-        //  .catch((error)=>{
-        //   console.log(error);
-        //  })
+         .catch((error)=>{
+          alert("server error");
+          console.log(error);
+         })
          .finally(()=>{
           setLoading(false);
          })

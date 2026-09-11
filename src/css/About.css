@@ -25,7 +25,8 @@
 .about-hero-content {
   max-width: 600px;
 }
- .about-button li{
+
+.about-button li {
   list-style: none;
 }
 
@@ -50,7 +51,7 @@
   margin-bottom: 20px;
 }
 
-.about-hero-content > p:not(.about-small-title) {
+.about-hero-content>p:not(.about-small-title) {
   color: #666666;
 
   font-size: 16px;
@@ -131,7 +132,7 @@
   margin: 0 auto 45px;
 }
 
-.section-title > p {
+.section-title>p {
   color: #1f6b45;
 
   font-size: 12px;
@@ -323,7 +324,7 @@
   margin-bottom: 20px;
 }
 
-.mission-content > p:not(.about-small-title) {
+/* .mission-content>p:not(.about-small-title) {
   color: #666666;
 
   font-size: 15px;
@@ -331,7 +332,7 @@
   line-height: 1.8;
 
   margin-bottom: 30px;
-}
+} */
 
 
 /* Tablet */
@@ -395,7 +396,7 @@
     font-size: 32px;
   }
 
-  .about-hero-content > p:not(.about-small-title) {
+  .about-hero-content>p:not(.about-small-title) {
     font-size: 14px;
   }
 

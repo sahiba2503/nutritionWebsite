@@ -20,10 +20,12 @@ function Login() {
 
     if (!email || !password) {
       setError("Please enter name and password ");
+       setLoading(false);
       return;
     }
     if (email.length < 3 || password.length < 3) {
       setError("Please enter correct information");
+       setLoading(false);
       return;
     }
     //  send this data to Node.js API.

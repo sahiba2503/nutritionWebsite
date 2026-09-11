@@ -45,14 +45,8 @@ function Home() {
             <div className="food-circle">
               🥗
             </div>
+           
 
-            <div className="floating-card card-one">
-              🍎 AI Food Recognition
-            </div>
-
-            <div className="floating-card card-two">
-              💚 Health Score
-            </div>
 
           </div>
 

@@ -20,10 +20,12 @@ function ForgotPass() {
 
     if (!email || !password) {
       setError("Please enter name and password ")
+      setLoading(false);
        return;
     }
     if (email.length < 3 || password.length < 3) {
-      setError("Please enter correct information");
+      setError("Please enter correct email information and password should be more than 3 character.");
+      setLoading(false);
        return;
     }
      //  send this data to Node.js API.
