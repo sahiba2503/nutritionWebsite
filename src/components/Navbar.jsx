@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
@@ -21,17 +22,16 @@ function Navbar() {
 
         {/* Navigation */}
         <div className='nav-links'>
-          <li onClick={() => Navigate("/")}>Home</li>
-          <li onClick={() => Navigate("/feature")}>Features</li>
-          <li onClick={() => Navigate("/about")}>About</li>
-          <li onClick={() => Navigate("/howItWork")}>How It Works</li>
+          <li onClick={() => Navigate("/homeContent/home")}>Home</li>
+          <li onClick={() => Navigate("/homeContent/feature")}>Features</li>
+          <li onClick={() => Navigate("/homeContent/about")}>About</li>
+          <li onClick={() => Navigate("/homeContent/howItWork")}>How It Works</li>
         </div>
-
+        
         {/* Auth buttons */}
         <div className='nav-buttons'>
-          <li onClick={() => Navigate("/login")}>Login</li>
-          <li onClick={() => Navigate("/signup")}>Sign Up</li>
-        </div>
+          <li onClick={() => Navigate("/")}>Logout</li>
+           </div>
       </div>
     </nav>
   );
