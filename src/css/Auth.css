@@ -84,6 +84,9 @@
   width: 100%;
   max-width: 450px;
 }
+.auth-form input{
+  cursor: pointer;
+}
 
 .auth-form h2 {
   margin-bottom: 8px;
