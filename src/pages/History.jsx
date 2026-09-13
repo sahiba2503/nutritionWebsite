@@ -1,5 +1,3 @@
-
-
 function History() {
   return (
     <div className="features" id="features">

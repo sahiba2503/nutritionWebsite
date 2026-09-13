@@ -119,6 +119,16 @@ list-style: none;
   margin-left: -11px;
   cursor: pointer;
 }
+.dyp-nav__user {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-soft);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
 /* Responsive */
 
 @media (max-width: 850px) {

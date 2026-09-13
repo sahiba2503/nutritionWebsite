@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
@@ -23,22 +22,23 @@ function Navbar() {
         {/* Navigation */}
         <div className='nav-links'>
           <li onClick={() => Navigate("/homeContent/dashboard")}>Dashboard</li>
-            <li onClick={() => Navigate("/homeContent/analyze")}>Analyze Food</li>
-          <li onClick={() => Navigate("/homeContent/history")}>History</li>        
-          <li onClick={() => Navigate("/homeContent/recommendations")}>Recommendations</li>
+          <li onClick={() => Navigate("/homeContent/analyze")}>Analyze Food</li>
+          <li onClick={() => Navigate("/homeContent/history")}>History</li>
+          <li onClick={() => Navigate("/homeContent/recommendations")}>
+            Recommendations
+          </li>
         </div>
-        
+
         {/* Auth buttons */}
-        <div className='nav-buttons'>
-          <li onClick={() => Navigate("/homeContent/userProfile")}>Logout</li>
-          <li >Sahiba</li>
-           <div className='logo-icon'></div>
-             <li className="arrowProfile" onClick={() => Navigate("/homeContent/userProfile")}>∨</li>
-           </div>
+       
+           <button className='dyp-nav__user' onClick={() => Navigate("profile")}>
+            Sahiba
+            <span className='dyp-nav__avatar'>S</span>
+          </button>
+        
       </div>
     </nav>
   );
-
 }
 
 export default Navbar;

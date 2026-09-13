@@ -10,12 +10,7 @@
 
 * { box-sizing: border-box; }
 
-.dyp {
-  min-height: 100vh;
-  background: var(--bg);
-  font-family: "Segoe UI", Arial, sans-serif;
-  color: var(--text);
-}
+
 
 .dyp-nav {
   display: flex;
@@ -201,8 +196,13 @@
   border: 1px solid var(--green-dark);
   color: var(--green-dark);
 }
+.asideListItem{
+    display: flex;
+    margin-bottom: 1rem;
+    
+}
 
-.dyp-placeholder { color: var(--text-soft); }
+/* .dyp-placeholder { color: var(--text-soft); } */
 
 @media (max-width: 700px) {
   .dyp-profile-shell { grid-template-columns: 1fr; }
