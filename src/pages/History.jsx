@@ -1,6 +1,6 @@
 
 
-function Features() {
+function History() {
   return (
     <div className="features" id="features">
      
@@ -70,4 +70,4 @@ function Features() {
   )
 }
 
-export default Features
+export default History;

@@ -1,6 +1,6 @@
 
 
-function HowItWork() {
+function Recommendations() {
   return (
     <div className="how-section" id="how-it-works">
     
@@ -52,4 +52,4 @@ function HowItWork() {
   )
 }
 
-export default HowItWork
+export default Recommendations;

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import "../css/About.css";
+import "../css/Analyze.css";
 
-function About() {
+function Analyze() {
   return (
     <div className="about-page">
 
@@ -85,4 +85,4 @@ function About() {
   );
 }
 
-export default About;
+export default Analyze;

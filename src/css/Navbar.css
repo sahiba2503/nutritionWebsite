@@ -8,6 +8,7 @@
 }
 .nav-links li{
   list-style: none;
+  font-family: 13px;
 }
 
 .navbar-container {
@@ -65,17 +66,17 @@
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 15px;
 }
 
-.nav-links a {
+.nav-links li {
   color: #333333;
   text-decoration: none;
   font-size: 15px;
   transition: 0.3s;
 }
 
-.nav-links a:hover {
+.nav-links li:hover {
   color: #258b4a;
 }
 
@@ -112,7 +113,12 @@ list-style: none;
 .signup-button:hover {
   background-color: #246f45;
 }
-
+.arrowProfile{
+  color:#777777;
+  font-size: 11px;
+  margin-left: -11px;
+  cursor: pointer;
+}
 /* Responsive */
 
 @media (max-width: 850px) {
