@@ -1,6 +1,6 @@
-function History() {
+function Suggestions() {
   return (
-    <div className="features" id="features">
+    <div className="dyp-page" >
      
 
         <div className="section-heading">
@@ -68,4 +68,4 @@ function History() {
   )
 }
 
-export default History;
+export default Suggestions;

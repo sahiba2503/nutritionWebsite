@@ -173,7 +173,10 @@
 .section-heading span {
   color: #777777;
 }
-
+.mainBody{
+  display: flex;
+  flex-direction: row;
+}
 /* Feature cards */
 
 .feature-grid {
@@ -447,9 +450,11 @@
 }
 
 .dyp-page {
-  max-width: 1000px;
+  height: 90vh;
+  width: 80%;
+  overflow: auto;
   margin: 0 auto;
-  padding: 2rem 2rem 3rem;
+  padding: 2rem 3rem;
 }
 
 .dyp-hero h1 {

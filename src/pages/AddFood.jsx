@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import "../css/Analyze.css";
 
-function Analyze() {
+function AddFood() {
   return (
-    <div className="about-page">
+    <div className="dyp-page">
 
       {/* Hero Section */}
 
@@ -85,4 +85,4 @@ function Analyze() {
   );
 }
 
-export default Analyze;
+export default AddFood;

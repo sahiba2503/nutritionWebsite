@@ -1,8 +1,10 @@
 /* Main page */
 
 .about-page {
-  min-height: 100vh;
+  height: 90vh;
+  width: 80%;
   background-color: #ffffff;
+  overflow: auto;
 }
 
 

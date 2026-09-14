@@ -1,8 +1,8 @@
 
 
-function Recommendations() {
+function Progress() {
   return (
-    <div className="how-section" id="how-it-works">
+    <div className="dyp-page"  >
     
 
         <div className="section-heading">
@@ -52,4 +52,4 @@ function Recommendations() {
   )
 }
 
-export default Recommendations;
+export default Progress;

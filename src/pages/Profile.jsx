@@ -4,12 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 function Profile( ) {
     let Navigate = useNavigate();
-    const SECTIONS = [
-  { key: "profile", icon: "👤" },
-  { key: "notifications", icon: "🔔" },
-  { key: "password", icon: "🔒" },
-  { key: "help", icon: "🕐" },
-];
+   
 
 
   const user = {
@@ -24,23 +19,7 @@ function Profile( ) {
   return (
     <div className='dyp-page'>
       <div className='dyp-profile-shell'>
-        <aside className='dyp-side'>
-          <ul>
-            {SECTIONS.map((s) => (
-              <li key={s.key} className="asideListItem">
-                 <span>{s.icon}</span>                  
-                 <p>{s.key}</p>
-              </li>
-            ))}
-            <li>
-              <button className='is-danger' onClick={()=>{Navigate("/")}}>
-                <span>⏻</span> Logout
-              </button>
-            </li>
-          </ul>
-        </aside>
-
-        <section className='dyp-content'>
+         <section className='dyp-content'>
           
               <div className='dyp-profile-header'>
                 <h2>Profile Information</h2>

@@ -6,7 +6,12 @@
 
   background-color: #ffffff;
 }
-
+.forgotlink{
+  list-style: none;
+}
+.signuplink{
+  list-style: none;
+}
 /* Left */
 
 .auth-left {
@@ -21,9 +26,7 @@
 
 .auth-logo {
   color: #205c35;
-
-  text-decoration: none;
-
+  list-style: none;
   font-size: 20px;
   font-weight: 700;
 }
