@@ -18,6 +18,7 @@ function Login() {
   function checkEmail() {
     let parts = email.trim().split("@");
 
+    //if the array does not have exactly 2 parts.”
     if (parts.length !== 2) {
       setEmailError("Please enter a valid email");
       return false;
@@ -30,21 +31,42 @@ function Login() {
       setEmailError("Email username should be at least 3 characters");
       return false;
     }
-
+    // whether the username contains any special character.
     if (
-      username.includes("!") ||
+     username.includes("@") ||
       username.includes("#") ||
       username.includes("$") ||
       username.includes("%") ||
+      username.includes("!") ||
       username.includes("&") ||
-      username.includes("*") ||
+      username.includes("?") ||
       username.includes("+") ||
-      username.includes("-")
+      username.includes("-") ||
+      username.includes("..") ||
+      username.includes("_") ||
+      username.includes(":") ||
+      username.includes(";") ||
+      username.includes("^") ||
+      username.includes("/") ||
+      username.includes(" ") ||
+      username.includes(",") ||
+      username.includes("'") ||
+      username.includes("(") ||
+      username.includes(")") ||
+      username.includes("{") ||
+      username.includes("}") ||
+      username.includes("[") ||
+      username.includes(">") ||
+      username.includes("<") ||
+      username.includes("]") ||
+      username.includes("|") ||
+      username.includes("`") ||
+      username.includes("~")
     ) {
-      setEmailError("Email contains invalid character");
+      setEmailError("Email contains invalid character or space");
       return false;
     }
-
+    // if the domain is not gmail.com.
     if (domain !== "gmail.com") {
       setEmailError("Please enter a valid Gmail address");
       return false;
@@ -55,45 +77,71 @@ function Login() {
   }
 
   function checkPassword() {
-    if (password.length < 8 || password.length > 12) {
-      setPasswordError("Password must be 8 to 12 characters");
+     let userPassword = password.trim();
+    if (userPassword.length < 8 || userPassword.length > 12) {
+      setPasswordError("user's Password must be 8 to 12 characters");
       return false;
     }
 
-    if (password === password.toLowerCase()) {
-      setPasswordError("Password must contain one capital letter");
+    if (userPassword === userPassword.toLowerCase()) {
+      setPasswordError("user's Password must contain one capital letter");
       return false;
     }
 
-    if (password === password.toUpperCase()) {
-      setPasswordError("Password must contain one small letter");
+    if (userPassword === userPassword.toUpperCase()) {
+      setPasswordError("user's Password must contain one small letter");
+      return false;
+    }
+     if (userPassword.includes(" ")) {
+      setPasswordError("user's Password should not contain space");
       return false;
     }
 
     if (
-      !password.includes("!") &&
-      !password.includes("@") &&
-      !password.includes("#") &&
-      !password.includes("$") &&
-      !password.includes("%") &&
-      !password.includes("&") &&
-      !password.includes("*")
+      !(userPassword.includes("!") ||
+        userPassword.includes("@") ||
+        userPassword.includes("#") ||
+        userPassword.includes("$") ||
+        userPassword.includes("%") ||
+        userPassword.includes("^") ||
+        userPassword.includes("&") ||
+        userPassword.includes("*") ||
+        userPassword.includes("(") ||
+        userPassword.includes(")") ||
+        userPassword.includes(">") ||
+        userPassword.includes("+") ||
+        userPassword.includes("{") ||
+        userPassword.includes("}") ||
+        userPassword.includes("[") ||
+        userPassword.includes("]") ||
+        userPassword.includes("|") ||
+        userPassword.includes("'") ||
+        userPassword.includes(";") ||
+        userPassword.includes(":") ||
+        userPassword.includes("/") ||
+        userPassword.includes("?") ||
+        userPassword.includes(">") ||
+        userPassword.includes("<") ||
+        userPassword.includes(".") ||
+        userPassword.includes("`") ||
+        userPassword.includes("~") ||
+        userPassword.includes(","))
     ) {
-      setPasswordError("Password must contain one special character");
+      setPasswordError("userPassword must contain one special character");
       return false;
     }
 
     if (
-      !password.includes("0") &&
-      !password.includes("1") &&
-      !password.includes("2") &&
-      !password.includes("3") &&
-      !password.includes("4") &&
-      !password.includes("5") &&
-      !password.includes("6") &&
-      !password.includes("7") &&
-      !password.includes("8") &&
-      !password.includes("9")
+      !(userPassword.includes("0") ||
+      userPassword.includes("1") ||
+      userPassword.includes("2") ||
+      userPassword.includes("3") ||
+      userPassword.includes("4") ||
+      userPassword.includes("5") ||
+      userPassword.includes("6") ||
+      userPassword.includes("7") ||
+      userPassword.includes("8") ||
+      userPassword.includes("9"))
     ) {
       setPasswordError("Password must contain one number");
       return false;
@@ -109,7 +157,7 @@ function Login() {
     if (loading) {
       return;
     }
-
+    //clear the previous error messages.
     setError("");
     setEmailError("");
     setPasswordError("");
@@ -118,21 +166,22 @@ function Login() {
       setError("Please fill all fields");
       return;
     }
-
+    // checkEmail() function checks the email format.
     let emailValid = checkEmail();
 
     if (!emailValid) {
       return;
     }
-
+    // checkPassword() function checks whether the password is valid.
     let passwordValid = checkPassword();
 
     if (!passwordValid) {
       return;
     }
-
+    //email and password are valid, I set loading to true.
+    //This means the login request is now running.
     setLoading(true);
-
+    //send the request , post,sending login data
     fetch("http://localhost:3000/loginAccount", {
       method: "POST",
       headers: {
@@ -149,12 +198,15 @@ function Login() {
           alert(data.message);
           navigate("/homeContent");
         } else {
+           setPasswordError(data.message);
           alert(data.message);
+         
         }
       })
       .catch((error) => {
         console.log(error);
         setError("Server error. Please try again.");
+        alert(" Something wrong please try again");
       })
       .finally(() => {
         setLoading(false);
@@ -166,35 +218,30 @@ function Login() {
 
   return (
     <div className='auth-page'>
+      {/* left part of the login pag */}
       <div className='auth-left'>
-        <li className='auth-logo'>🌿 Decode Your Plate</li>
+        <h3 className='auth-logo'>🌿 Decode Your Plate</h3>
 
         <div className='auth-left-content'>
           <p>AI NUTRITION INTELLIGENCE</p>
-
           <h1>
             Welcome
             <br />
             Back!
           </h1>
-
           <span>Login to your account and continue your healthy journey.</span>
-
           <div className='auth-food'>🥑 🥗 🍅</div>
         </div>
       </div>
-
+      {/* right part of the login page */}
       <div className='auth-right'>
-        <form className='auth-form' onSubmit={handleLogin}>
+        <form className='auth-form'>
           <h2>Login to Your Account</h2>
-
           <p className='auth-subtitle'>
             Welcome back! Please enter your details.
           </p>
-
           <div className='form-group'>
             <label>Email Address</label>
-
             <input
               type='email'
               placeholder='Enter your email'
@@ -202,24 +249,20 @@ function Login() {
               onChange={(event) => setEmail(event.target.value)}
               disabled={loading}
             />
-
             {emailError ? emailError : ""}
           </div>
-
           <div className='form-group'>
             <div className='label-row'>
               <label>Password</label>
-
               <li
                 className='forgotlink'
                 onClick={() => {
-                  navigate("/forgotPass");
+                  navigate("/forgotPassword");
                 }}
               >
                 Forgot Password?
               </li>
             </div>
-
             <input
               type='password'
               placeholder='Enter your password'
@@ -227,11 +270,15 @@ function Login() {
               onChange={(event) => setPassword(event.target.value)}
               disabled={loading}
             />
-
-            {passwordError ? passwordError : ""}
+            <p> {passwordError ? passwordError : ""}</p>
+           
           </div>
-
-          <button type='submit' className='auth-button' disabled={loading}>
+          <button
+            type='submit'
+            className='auth-button'
+            disabled={loading}
+            onClick={handleLogin}
+          >
             {loading ? "Logging in..." : "Login"}
           </button>
           {error ? error : ""}

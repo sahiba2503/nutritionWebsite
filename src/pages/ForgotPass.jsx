@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -33,14 +32,35 @@ function ForgotPass() {
     }
 
     if (
-      username.includes("!") ||
+      username.includes("@") ||
       username.includes("#") ||
       username.includes("$") ||
       username.includes("%") ||
+      username.includes("!") ||
       username.includes("&") ||
-      username.includes("*") ||
+      username.includes("?") ||
       username.includes("+") ||
-      username.includes("-")
+      username.includes("-") ||
+      username.includes("..") ||
+      username.includes("_") ||
+      username.includes(":") ||
+      username.includes(";") ||
+      username.includes("^") ||
+      username.includes("/") ||
+      username.includes(" ") ||
+      username.includes(",") ||
+      username.includes("'") ||
+      username.includes("(") ||
+      username.includes(")") ||
+      username.includes("{") ||
+      username.includes("}") ||
+      username.includes("[") ||
+      username.includes(">") ||
+      username.includes("<") ||
+      username.includes("]") ||
+      username.includes("|") ||
+      username.includes("`") ||
+      username.includes("~")
     ) {
       setEmailError("Email contains invalid character");
       return false;
@@ -56,45 +76,71 @@ function ForgotPass() {
   }
 
   function checkPassword() {
-    if (password.length < 8 || password.length > 12) {
-      setPasswordError("Password must be 8 to 12 characters");
+    let userPassword = password.trim();
+    if (userPassword.length < 8 || userPassword.length > 12) {
+      setPasswordError("user's Password must be 8 to 12 characters");
       return false;
     }
 
-    if (password === password.toLowerCase()) {
-      setPasswordError("Password must contain one capital letter");
+    if (userPassword === userPassword.toLowerCase()) {
+      setPasswordError("user's Password must contain one capital letter.");
       return false;
     }
 
-    if (password === password.toUpperCase()) {
-      setPasswordError("Password must contain one small letter");
+    if (userPassword === userPassword.toUpperCase()) {
+      setPasswordError("user's Password must contain one small letter.");
+      return false;
+    }
+    if (userPassword.includes(" ")) {
+      setPasswordError("user's Password should not contain space.");
       return false;
     }
 
     if (
-      !password.includes("!") &&
-      !password.includes("@") &&
-      !password.includes("#") &&
-      !password.includes("$") &&
-      !password.includes("%") &&
-      !password.includes("&") &&
-      !password.includes("*")
+      !( userPassword.includes("!") ||
+        userPassword.includes("@") ||
+        userPassword.includes("#") ||
+        userPassword.includes("$") ||
+        userPassword.includes("%") ||
+        userPassword.includes("^") ||
+        userPassword.includes("&") ||
+        userPassword.includes("*") ||
+        userPassword.includes("(") ||
+        userPassword.includes(")") ||
+        userPassword.includes(">") ||
+        userPassword.includes("+") ||
+        userPassword.includes("{") ||
+        userPassword.includes("}") ||
+        userPassword.includes("[") ||
+        userPassword.includes("]") ||
+        userPassword.includes("|") ||
+        userPassword.includes("'") ||
+        userPassword.includes(";") ||
+        userPassword.includes(":") ||
+        userPassword.includes("/") ||
+        userPassword.includes("?") ||
+        userPassword.includes(">") ||
+        userPassword.includes("<") ||
+        userPassword.includes(".") ||
+        userPassword.includes("`") ||
+        userPassword.includes("~") ||
+        userPassword.includes(","))
     ) {
-      setPasswordError("Password must contain one special character");
+      setPasswordError("user's Password must contain one special character");
       return false;
     }
 
     if (
-      !password.includes("0") &&
-      !password.includes("1") &&
-      !password.includes("2") &&
-      !password.includes("3") &&
-      !password.includes("4") &&
-      !password.includes("5") &&
-      !password.includes("6") &&
-      !password.includes("7") &&
-      !password.includes("8") &&
-      !password.includes("9")
+      !(userPassword.includes("0") ||
+      userPassword.includes("1") ||
+      userPassword.includes("2") ||
+      userPassword.includes("3") ||
+      userPassword.includes("4") ||
+      userPassword.includes("5") ||
+      userPassword.includes("6") ||
+      userPassword.includes("7") ||
+      userPassword.includes("8") ||
+      userPassword.includes("9"))
     ) {
       setPasswordError("Password must contain one number");
       return false;
@@ -167,15 +213,8 @@ function ForgotPass() {
   return (
     <div className='auth-page'>
       <div className='auth-left'>
-        <Link
-          to='/'
-          className='auth-logo'
-          style={{
-            pointerEvents: loading ? "none" : "auto",
-          }}
-        >
-          🌿 Decode Your Plate
-        </Link>
+        <li> 🌿 Decode Your Plate</li>
+        <li onClick={() => navigate("/")}>◀◁</li>
 
         <div className='auth-left-content'>
           <p>AI NUTRITION INTELLIGENCE</p>

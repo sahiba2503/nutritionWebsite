@@ -8,13 +8,12 @@ function Sidnavbar() {
         { key: "Add Food", icon: "➕", path:"/homeContent/addFood"},
         { key:  "Suggestions", icon: "💡", path:"/homeContent/suggestions"},
         { key: "Progress", icon: "📈", path:"/homeContent/progess"},
-        { key: "Goal", icon: "🎯", path:"/homeContent/dashboard"},
+        { key: "Goal", icon: "🎯", path:"/homeContent/goal"},
         { key: "Profile", icon: "👤" , path:"/homeContent/profile"},
         { key: "notifications", icon: "🔔" , path:"/homeContent/dashboard"},
         { key: "password", icon: "🔒" , path:"/homeContent/dashboard"},
          { key: "help", icon: "🕐" , path:"/homeContent/dashboard"},
-        { key: "Logout", icon: "⏻" , path:"/homeContent/dashboard"},
-  ];
+          ];
  
   return (
     <div className="sidnaveOuterContainer">

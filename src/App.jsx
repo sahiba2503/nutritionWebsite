@@ -8,13 +8,14 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import ForgotPass from "./pages/ForgotPass";
 import Profile from "./pages/Profile";
+import Goal from "./pages/Goal";
 function App() {
   return (
-    <div className="appContainer">
+    <div className='appContainer'>
       <Routes>
         <Route path='/' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
-        <Route path='/forgotPass' element={<ForgotPass />} />
+        <Route path='/forgotPassword' element={<ForgotPass />} />
         <Route path='/homeContent' element={<HomeContent />}>
           <Route index element={<Dashboard />} />
           <Route path='/homeContent/dashboard' element={<Dashboard />} />
@@ -22,6 +23,7 @@ function App() {
           <Route path='/homeContent/suggestions' element={<Suggestions />} />
           <Route path='/homeContent/progess' element={<Progress />} />
           <Route path='/homeContent/profile' element={<Profile />} />
+          <Route path='/homeContent/goal' element={<Goal />} />
         </Route>
       </Routes>
     </div>

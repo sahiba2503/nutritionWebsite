@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -49,9 +48,30 @@ function Signup() {
       userName.includes("%") ||
       userName.includes("!") ||
       userName.includes("&") ||
-      userName.includes("*")
+      userName.includes("?") ||
+      userName.includes("+") ||
+      userName.includes("-") ||
+      userName.includes("  ") ||
+      userName.includes("^") ||
+      userName.includes("/") ||
+      userName.includes(":") ||
+      userName.includes(";") ||
+      userName.includes(".") ||
+      userName.includes(",") ||
+      userName.includes("'") ||
+      userName.includes(">") ||
+      userName.includes("<") ||
+      userName.includes("(") ||
+      userName.includes(")") ||
+      userName.includes("{") ||
+      userName.includes("}") ||
+      userName.includes("[") ||
+      userName.includes("]") ||
+      userName.includes("|") ||
+      userName.includes("`") ||
+      userName.includes("~")
     ) {
-      setNameError("Name should not contain special characters");
+      setNameError("Name should not contain special characters or space");
       return false;
     }
 
@@ -76,16 +96,37 @@ function Signup() {
     }
 
     if (
-      username.includes("!") ||
+      username.includes("@") ||
       username.includes("#") ||
       username.includes("$") ||
       username.includes("%") ||
+      username.includes("!") ||
       username.includes("&") ||
-      username.includes("*") ||
+      username.includes("?") ||
       username.includes("+") ||
-      username.includes("-")
+      username.includes("-") ||
+      username.includes("..") ||
+      username.includes("_") ||
+      username.includes(":") ||
+      username.includes(";") ||
+      username.includes("^") ||
+      username.includes("/") ||
+      username.includes(" ") ||
+      username.includes(",") ||
+      username.includes("'") ||
+      username.includes("(") ||
+      username.includes(")") ||
+      username.includes("{") ||
+      username.includes("}") ||
+      username.includes("[") ||
+      username.includes(">") ||
+      username.includes("<") ||
+      username.includes("]") ||
+      username.includes("|") ||
+      username.includes("`") ||
+      username.includes("~")
     ) {
-      setEmailError("Email contains invalid character");
+      setEmailError("Email contains invalid character or extra space");
       return false;
     }
 
@@ -99,45 +140,76 @@ function Signup() {
   }
 
   function checkPassword() {
-    if (password.length < 8 || password.length > 12) {
+    let userPassword = password.trim();
+    if (userPassword.length < 8 || userPassword.length > 12) {
       setPasswordError("Password must be 8 to 12 characters");
       return false;
     }
 
-    if (password === password.toLowerCase()) {
+    if (userPassword === userPassword.toLowerCase()) {
       setPasswordError("Password must contain one capital letter");
+
       return false;
     }
 
-    if (password === password.toUpperCase()) {
+    if (userPassword === userPassword.toUpperCase()) {
       setPasswordError("Password must contain one small letter");
+      return false;
+    }
+     if (userPassword.includes(" ")) {
+      setPasswordError("Password should not  contain space");
       return false;
     }
 
     if (
-      !password.includes("!") &&
-      !password.includes("@") &&
-      !password.includes("#") &&
-      !password.includes("$") &&
-      !password.includes("%") &&
-      !password.includes("&") &&
-      !password.includes("*")
+      !(
+        userPassword.includes("!") ||
+        userPassword.includes("@") ||
+        userPassword.includes("#") ||
+        userPassword.includes("$") ||
+        userPassword.includes("%") ||
+        userPassword.includes("^") ||
+        userPassword.includes("&") ||
+        userPassword.includes("*") ||
+        userPassword.includes("(") ||
+        userPassword.includes(")") ||
+        userPassword.includes(">") ||
+        userPassword.includes("+") ||
+        userPassword.includes("{") ||
+        userPassword.includes("}") ||
+        userPassword.includes("[") ||
+        userPassword.includes("]") ||
+        userPassword.includes("|") ||
+        userPassword.includes("'") ||
+        userPassword.includes(";") ||
+        userPassword.includes(":") ||
+        userPassword.includes("/") ||
+        userPassword.includes("?") ||
+        userPassword.includes(">") ||
+        userPassword.includes("<") ||
+        userPassword.includes(".") ||
+        userPassword.includes("`") ||
+        userPassword.includes("~") ||
+        userPassword.includes(",")
+      )
     ) {
       setPasswordError("Password must contain one special character");
       return false;
     }
 
     if (
-      !password.includes("0") &&
-      !password.includes("1") &&
-      !password.includes("2") &&
-      !password.includes("3") &&
-      !password.includes("4") &&
-      !password.includes("5") &&
-      !password.includes("6") &&
-      !password.includes("7") &&
-      !password.includes("8") &&
-      !password.includes("9")
+      !(
+        userPassword.includes("0") ||
+        userPassword.includes("1") ||
+        userPassword.includes("2") ||
+        userPassword.includes("3") ||
+        userPassword.includes("4") ||
+        userPassword.includes("5") ||
+        userPassword.includes("6") ||
+        userPassword.includes("7") ||
+        userPassword.includes("8") ||
+        userPassword.includes("9")
+      )
     ) {
       setPasswordError("Password must contain one number");
       return false;
@@ -219,11 +291,11 @@ function Signup() {
   }
 
   return (
-    <div className="auth-page">
-      <div className="auth-left signup-left">
+    <div className='auth-page'>
+      <div className='auth-left signup-left'>
         <Link
-          to="/"
-          className="auth-logo"
+          to='/'
+          className='auth-logo'
           style={{
             pointerEvents: loading ? "none" : "auto",
           }}
@@ -231,7 +303,7 @@ function Signup() {
           🌿 Decode Your Plate
         </Link>
 
-        <div className="auth-left-content">
+        <div className='auth-left-content'>
           <p>AI NUTRITION INTELLIGENCE</p>
 
           <h1>
@@ -245,18 +317,18 @@ function Signup() {
             your meals and build healthier habits.
           </span>
 
-          <div className="auth-food">🥣 🫐 🍌</div>
+          <div className='auth-food'>🥣 🫐 🍌</div>
         </div>
       </div>
 
-      <div className="auth-right">
-        <form className="auth-form" onSubmit={handleSignup}>
+      <div className='auth-right'>
+        <form className='auth-form' onSubmit={handleSignup}>
           <h2>Create Account</h2>
 
-          <p className="auth-subtitle">
+          <p className='auth-subtitle'>
             Already have an account?{" "}
             <Link
-              to="/"
+              to='/'
               style={{
                 pointerEvents: loading ? "none" : "auto",
               }}
@@ -265,12 +337,12 @@ function Signup() {
             </Link>
           </p>
 
-          <div className="form-group">
+          <div className='form-group'>
             <label>Full Name</label>
 
             <input
-              type="text"
-              placeholder="Enter your full name"
+              type='text'
+              placeholder='Enter your full name'
               value={name}
               onChange={(event) => setName(event.target.value)}
               disabled={loading}
@@ -279,12 +351,12 @@ function Signup() {
             {nameError && <p>{nameError}</p>}
           </div>
 
-          <div className="form-group">
+          <div className='form-group'>
             <label>Email Address</label>
 
             <input
-              type="email"
-              placeholder="Enter your email"
+              type='email'
+              placeholder='Enter your email'
               value={email}
               onChange={(event) => setEmail(event.target.value)}
               disabled={loading}
@@ -293,12 +365,12 @@ function Signup() {
             {emailError && <p>{emailError}</p>}
           </div>
 
-          <div className="form-group">
+          <div className='form-group'>
             <label>Password</label>
 
             <input
-              type="password"
-              placeholder="Create a password"
+              type='password'
+              placeholder='Create a password'
               value={password}
               onChange={(event) => setPassword(event.target.value)}
               disabled={loading}
@@ -307,17 +379,13 @@ function Signup() {
             {passwordError && <p>{passwordError}</p>}
           </div>
 
-          <button
-            type="submit"
-            className="auth-button"
-            disabled={loading}
-          >
+          <button type='submit' className='auth-button' disabled={loading}>
             {loading ? "Creating Account..." : "Sign Up"}
           </button>
 
           {error && <p>{error}</p>}
 
-          <p className="terms">
+          <p className='terms'>
             By signing up, you agree to our Terms & Conditions and Privacy
             Policy.
           </p>

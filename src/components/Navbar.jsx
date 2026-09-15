@@ -25,8 +25,8 @@ function Navbar() {
 
         {/* Auth buttons */}
             
-           <button className='dyp-nav__user' onClick={() => Navigate("/homeContent/profile")}>
-            Sahiba <span className='dyp-nav__avatar'>S</span>
+           <button className='dyp-nav__user' onClick={() => Navigate("/")}>
+            Logout <span className='dyp-nav__avatar'>S</span>
           </button>
         
       </div>

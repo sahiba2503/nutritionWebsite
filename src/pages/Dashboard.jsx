@@ -17,6 +17,7 @@ export function Dashboard({userName="Sahiba"}) {
         <section className="dyp-quickadd">
           <h2>Quick Add Meal</h2>
           <div className="dyp-tiles">
+            
             <button className="dyp-tile" onClick={() => onNavigate("/addfood")}>
               <span className="dyp-tile__icon">📷</span>
               <div className="dyp-tile__title">Upload Food Photo</div>

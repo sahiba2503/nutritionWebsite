@@ -16,7 +16,7 @@
 
 .auth-left {
   background: #eaf7ec;
-
+   list-style: none;
   padding: 40px;
 
   position: relative;
